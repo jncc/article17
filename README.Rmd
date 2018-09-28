@@ -1,15 +1,27 @@
+---
+output: github_document
+---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-article17
-=========
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+# article17
 
 The goal of article17 is to contain the functions commonly used within the scripts used to transform the species and habitats between the data capture spreadsheets, European reporting tool and aggregate spreadsheets.
 
-Installation
-------------
+## Installation
 
 You can install the latest version of article17 from github using:
 
 ``` r
 devtools::install_github("jncc/article17")
 ```
+
+

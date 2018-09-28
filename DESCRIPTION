@@ -1,0 +1,15 @@
+Package: article17
+Title: Article17 Functions
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Graham",
+           family = "French",
+           role = c("aut", "cre"),
+           email = "Graham.French@jncc.gov.uk")
+Description: This package contains commonly used functions for data manipulation within the article 17 data transformation process
+License: OGL
+Encoding: UTF-8
+LazyData: true
+Imports: 
+    stringr
+RoxygenNote: 6.1.0
