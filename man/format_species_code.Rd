@@ -7,17 +7,15 @@
 format_species_code(speciescode)
 }
 \arguments{
-\item{speciescode}{character, species code beginning with S
-
-UK species codes starts with the letter S to distinguish
-them from habitat codes. European codes do not have this
-initial letter and so this function removes the initial S}
+\item{speciescode}{character, species code beginning with S}
 }
 \value{
 character, species code without the initial S
 }
 \description{
-Format species code
+UK species codes starts with the letter S to distinguish
+them from habitat codes. European codes do not have this
+initial letter and so this function removes the initial S
 }
 \examples{
 format_species_code("S1234")

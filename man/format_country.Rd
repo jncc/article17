@@ -7,15 +7,13 @@
 format_country(country)
 }
 \arguments{
-\item{country}{character, country name
-
- This function removes any spaces within the countries name}
+\item{country}{character, country name}
 }
 \value{
 character, country name without spaces
 }
 \description{
-Format country
+This function removes any spaces within the countries name
 }
 \examples{
 format_country("Northen Ireland")

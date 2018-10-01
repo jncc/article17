@@ -347,6 +347,32 @@ recode_measures_purpose_species <- function(purpose) {
     unlist()
 }
 
+#' Recode habitat measures purpose
+#' 
+#' This function changes the descriptive measures purpose text
+#' for habitat to the abbreviated text used in the reporting tool 
+#'
+#' @param purpose character, measures purpose text 
+#'
+#' @return character, measures purpose abbreviated text 
+#' @export
+#'
+#' @examples
+#' recode_measures_purpose_habitat("Maintain the current range, surface area or structure and functions of the habitat type")
+recode_measures_purpose_habitat <- function(purpose) {
+  
+  tibble::as.tibble(purpose) %>% 
+    dplyr::mutate(value = dplyr::case_when
+           (
+             stringr::str_detect(stringr::str_to_lower(value), "^expand") ~ "expand",
+             stringr::str_detect(stringr::str_to_lower(value), "^increase") ~ "increase",
+             stringr::str_detect(stringr::str_to_lower(value), "^maintain") ~ "maintain",
+             stringr::str_detect(stringr::str_to_lower(value), "^restore") ~ "restore",
+             TRUE ~ value
+           )) %>% 
+    unlist()
+}
+
 #' Recode measures location
 #' 
 #' This function changes the descriptive measures location text

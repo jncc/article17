@@ -1,10 +1,10 @@
 #' Format species code
-#'
-#' @param speciescode character, species code beginning with S
-#'
+#' 
 #' UK species codes starts with the letter S to distinguish
 #' them from habitat codes. European codes do not have this
 #' initial letter and so this function removes the initial S
+#'
+#' @param speciescode character, species code beginning with S
 #'
 #' @return character, species code without the initial S
 #' @export
@@ -16,11 +16,28 @@ format_species_code <- function(speciescode) {
 }
 
 
+#' Format habitat code
+#' 
+#' UK habitat codes starts with the letter H to distinguish
+#' them from species codes. European codes do not have this
+#' initial letter and so this function removes the initial H
+#'
+#' @param habitatcode character, habitat code beginning with H
+#'
+#' @return character, habitat code without the initial H
+#' @export
+#'
+#' @examples
+#' format_habitat_code("H1234")
+format_habitat_code <- function(habitatcode) {
+  stringr::str_replace(habitatcode, "^H", "")
+}
+
 #' Format country
+#' 
+#' This function removes any spaces within the countries name
 #'
 #' @param country character, country name
-#' 
-#'  This function removes any spaces within the countries name
 #'
 #' @return character, country name without spaces
 #' @export
