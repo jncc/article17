@@ -15,5 +15,9 @@ Imports:
     dplyr,
     magrittr,
     tibble,
-    stringi
+    stringi,
+    keyring,
+    DBI,
+    odbc,
+    jsonlite
 RoxygenNote: 6.1.0
