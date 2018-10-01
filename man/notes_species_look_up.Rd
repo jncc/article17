@@ -3,7 +3,7 @@
 \docType{data}
 \name{notes_species_look_up}
 \alias{notes_species_look_up}
-\title{Species categories}
+\title{Species audit notes categories}
 \format{A tibble with 80 rows and 3 variables
 \describe{
   \item{reporting_code}{species category's reporting code}
@@ -14,6 +14,6 @@
 notes_species_look_up
 }
 \description{
-A dataset containing the Article 17 species categories
+A dataset containing the Article 17 species audit notes categories
 }
 \keyword{datasets}

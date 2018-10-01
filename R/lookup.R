@@ -25,9 +25,9 @@
 "code_look_up"
 
 
-#' Species categories
+#' Species audit notes categories
 #' 
-#' A dataset containing the Article 17 species categories
+#' A dataset containing the Article 17 species audit notes categories
 #' 
 #' @format A tibble with 80 rows and 3 variables
 #' \describe{
@@ -36,3 +36,16 @@
 #'   \item{entity_table_name}{reporting tool table name that contains column for the species category}
 #' }
 "notes_species_look_up"
+
+#' Habitat audit notes categories
+#' 
+#' A dataset containing the Article 17 habitat audit notes categories
+#' 
+#' @format A tibble with 68 rows and 3 variables
+#' \describe{
+#'   \item{reporting_code}{habitat category's reporting code}
+#'   \item{field_label}{habitat category's descriptive names, including reporting code}
+#'   \item{entity_table_name}{reporting tool table name that contains column for the habitat category}
+#' }
+"notes_habitat_look_up"
+
