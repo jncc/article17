@@ -4,20 +4,22 @@
 \alias{get_sqlserver_connection}
 \title{Get SQL Server connection}
 \usage{
-get_sqlserver_connection(keyring_name, service_name)
+get_sqlserver_connection(keyring_name, service_name, keyring = TRUE)
 }
 \arguments{
 \item{keyring_name}{character, name of keyring}
 
-\item{service_name}{chracter, name of service storing credentials}
+\item{service_name}{character, name of service storing credentials}
+
+\item{keyring}{logical, use of keyring TRUE (default) or FALSE}
 }
 \value{
 connection object, SQL Server connection object
 }
 \description{
-This function initiates a SQL Server connection
-using the keyring package to store the database
-credentials
+This function initiates a SQL Server connection either 
+using stored database credentials using the keyring package
+or else requesting database credentials
 }
 \examples{
 get_sqlserver_connection("keyring", "database_service_name")
