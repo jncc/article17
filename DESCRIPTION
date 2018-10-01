@@ -6,7 +6,7 @@ Authors@R:
            family = "French",
            role = c("aut", "cre"),
            email = "Graham.French@jncc.gov.uk")
-Description: This package contains commonly used functions for data manipulation within the article 17 data transformation process
+Description: This package contains commonly used functions and data used for data manipulation within the article 17 data transformation process
 License: OGL
 Encoding: UTF-8
 LazyData: true
