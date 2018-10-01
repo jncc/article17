@@ -1,3 +1,4 @@
+^data-raw$
 ^README\.Rmd$
 ^article17\.Rproj$
 ^\.Rproj\.user$
