@@ -25,6 +25,17 @@
 #' }
 "base_grid_bng"
 
+#' TenKM grids in ETRS89 covering Britain and Ireland
+#' 
+#' A shape file of 10KM grid squares covering Britain
+#' and Ireland in ETRS89 projection (EPSG::3035)
+#' 
+#' @format A shape file with 28900 rows and 1 variables
+#' \describe{
+#'   \item{cell_code}{polygon 10KM ETRS grid square label}
+#' }
+"base_grid_etrs"
+
 #' Britain and Ireland look up TenKM grids in ETRS89
 #' 
 #' A shape file of the British and Irish 10KM grid squares
@@ -37,4 +48,4 @@
 #'   \item{cell_code}{polygon 10KM ETRS grid square label}
 #'   \item{tenkm}{polygon 10KM BNG grid square label}
 #' }
-"base_grid_etrs"
+"base_grid_bng_etrs_lookup"
