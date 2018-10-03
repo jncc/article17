@@ -13,8 +13,8 @@
 base_map
 }
 \description{
-A shape file of the British and Irish coastline derived 
-from the Oil and Gas Authority's OGA and Lloyd's Register 
+A simple features data frame of the British and Irish coastline 
+derived from the Oil and Gas Authority's OGA and Lloyd's Register 
 SNS Regional Geological Maps (Open Source) layer. 
 Licence: Open Government Licence v3 (OGL) 
 (http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).

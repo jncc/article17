@@ -49,3 +49,36 @@
 #' }
 "notes_habitat_look_up"
 
+#' Species information
+#' 
+#' A dataset containing the Article 17 species information
+#' 
+#' @format A tibble with 76 rows and 10 variables
+#' \describe{
+#'   \item{code}{species code starting with initial S}
+#'   \item{name}{scientific name}
+#'   \item{common_name}{common name}
+#'   \item{taxon_group}{taxonomic group}
+#'   \item{occurrence}{is the species resident within the UK}
+#'   \item{annex ii}{is the species on EC Habitat Directive's Annex II list}
+#'   \item{annex iv}{is the species on EC Habitat Directive's Annex IV list}
+#'   \item{annex v}{is the species on EC Habitat Directive's Annex V list}
+#'   \item{alpha}{alpha values used when creating range alpha shape polygons}
+#'   \item{clipping_polygon}{are the alpha shape range polygons clipped to the UK coast}
+#' }
+"information_species_look_up"
+
+#' Habitat information
+#' 
+#' A dataset containing the Article 17 habitat information
+#' 
+#' @format A tibble with 69 rows and 5 variables
+#' \describe{
+#'   \item{code}{habitat code starting with initial H}
+#'   \item{name}{habitat name}
+#'   \item{group}{habitat group}
+#'   \item{alpha}{alpha values used when creating range alpha shape polygons}
+#'   \item{clipping_polygon}{are the alpha shape range polygons clipped to the UK coast}
+#' }
+"information_habitat_look_up"
+

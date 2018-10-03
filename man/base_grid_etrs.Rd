@@ -12,7 +12,7 @@
 base_grid_etrs
 }
 \description{
-A shape file of 10KM grid squares covering Britain
-and Ireland in ETRS89 projection (EPSG::3035)
+A simple features data frame of 10KM grid squares covering 
+Britain and Ireland in ETRS89 projection (EPSG::3035)
 }
 \keyword{datasets}

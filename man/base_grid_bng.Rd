@@ -12,7 +12,7 @@
 base_grid_bng
 }
 \description{
-A shape file of the British and Irish 10KM grid squares
-in British National Grid projection (EPSG::27700)
+A simple features data frame of the British and Irish 10KM 
+grid squares in British National Grid projection (EPSG::27700)
 }
 \keyword{datasets}

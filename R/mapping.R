@@ -1,7 +1,7 @@
 #' Britain and Ireland Oil and Gas Authority's coastline 
 #' 
-#' A shape file of the British and Irish coastline derived 
-#' from the Oil and Gas Authority's OGA and Lloyd's Register 
+#' A simple features data frame of the British and Irish coastline 
+#' derived from the Oil and Gas Authority's OGA and Lloyd's Register 
 #' SNS Regional Geological Maps (Open Source) layer. 
 #' Licence: Open Government Licence v3 (OGL) 
 #' (http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).
@@ -16,8 +16,8 @@
 
 #' Britain and Ireland TenKM grids in British National Grid
 #' 
-#' A shape file of the British and Irish 10KM grid squares
-#' in British National Grid projection (EPSG::27700)
+#' A simple features data frame of the British and Irish 10KM 
+#' grid squares in British National Grid projection (EPSG::27700)
 #' 
 #' @format A shape file with 11100 rows and 1 variables
 #' \describe{
@@ -27,8 +27,8 @@
 
 #' TenKM grids in ETRS89 covering Britain and Ireland
 #' 
-#' A shape file of 10KM grid squares covering Britain
-#' and Ireland in ETRS89 projection (EPSG::3035)
+#' A simple features data frame of 10KM grid squares covering 
+#' Britain and Ireland in ETRS89 projection (EPSG::3035)
 #' 
 #' @format A shape file with 28900 rows and 1 variables
 #' \describe{
@@ -38,10 +38,10 @@
 
 #' Britain and Ireland look up TenKM grids in ETRS89
 #' 
-#' A shape file of the British and Irish 10KM grid squares
-#' in ETRS89 projection (EPSG::3035), matching 10KM BNG grid
-#' squares to their corresponding ETRS 10KM grid square base 
-#' on largest area of overlap.
+#' A simple features data frame of the British and Irish 10KM 
+#' grid squares in ETRS89 projection (EPSG::3035), matching 10KM 
+#' BNG grid squares to their corresponding ETRS 10KM grid square 
+#' based on largest area of overlap.
 #' 
 #' @format A shape file with 11100 rows and 2 variables
 #' \describe{

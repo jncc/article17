@@ -13,9 +13,9 @@
 base_grid_bng_etrs_lookup
 }
 \description{
-A shape file of the British and Irish 10KM grid squares
-in ETRS89 projection (EPSG::3035), matching 10KM BNG grid
-squares to their corresponding ETRS 10KM grid square base 
-on largest area of overlap.
+A simple features data frame of the British and Irish 10KM 
+grid squares in ETRS89 projection (EPSG::3035), matching 10KM 
+BNG grid squares to their corresponding ETRS 10KM grid square 
+based on largest area of overlap.
 }
 \keyword{datasets}

@@ -171,3 +171,13 @@ notes_habitat_look_up <- tibble::tribble(
   "12.1",                                            "12.1 Justification of 1% threshold for trends",    "data_habitattype_regions",
   "12.2",                                                          "12.2 Other relevant information",    "data_habitattype_regions"
 )
+
+# information_species_look_up
+information_species_look_up <- readxl::read_excel("./Range mapping/Lookups/species_lookup_tables_2019.xlsx") %>%
+  dplyr::filter(!is.na(alpha))
+
+# information_habitat_look_up
+information_habitat_look_up <- readxl::read_excel("./Range mapping/Lookups/habitat_lookup_tables_2019.xlsx") %>%
+  dplyr::filter(!is.na(alpha))
+
+
