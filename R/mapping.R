@@ -23,11 +23,11 @@ stx_create_map <- function(layer, polygon_fill_colour, base_uk, base_nuk) {
     ggthemes::theme_map() +
     ggplot2::theme(panel.grid.major = element_line(color = NA)) +
     ggplot2::geom_sf(data = base_nuk, fill = NA, colour = "#595959") +
-    ggplot2::geom_sf(data = base_uk, fill = polygon_fill_colour, colour = "#595959")
+    ggplot2::geom_sf(data = base_uk, fill = "#E5E5E5", colour = "#595959")
   
-  # add tenkm gridsquares
+  # add polygons
   map <- map +
-    ggplot2::geom_sf(data = layer, fill = "#E7E501", colour = "#000000")
+    ggplot2::geom_sf(data = layer, fill = polygon_fill_colour, colour = "#000000")
 }
 
 #' Britain and Ireland Oil and Gas Authority's coastline 
