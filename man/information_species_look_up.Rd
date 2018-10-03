@@ -15,7 +15,7 @@
   \item{annex iv}{is the species on EC Habitat Directive's Annex IV list}
   \item{annex v}{is the species on EC Habitat Directive's Annex V list}
   \item{alpha}{alpha values used when creating range alpha shape polygons}
-  \item{clipping_polygon}{are the alpha shape range polygons clipped to the UK coast}
+  \item{clipping_polygon}{are the alpha shape range polygons clipped to the UK coast or to 10KM inline coastal grid squares}
 }}
 \usage{
 information_species_look_up

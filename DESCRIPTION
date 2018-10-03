@@ -19,5 +19,7 @@ Imports:
     keyring,
     DBI,
     odbc,
-    jsonlite
+    jsonlite,
+    ggplot2,
+    ggthemes
 RoxygenNote: 6.1.0
