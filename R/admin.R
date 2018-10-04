@@ -25,3 +25,47 @@ use_test_data <- function(data, test_data = TRUE) {
   return(data)
 }
 
+#' Export results log
+#'
+#' This function exports a log of success and failures resulting from
+#' applying purrr's map functionality to iterate through a vector, applying
+#' a safe function using purrr's safely functionality
+#'
+#' @param results list, contains the errors created from purrr's safely function
+#' @param data_files vector, used to iterate through the safe function
+#' @param log_path character or path object, path where log file will be exported
+#'
+#' @return csv, export log as a csv file
+#' @export 
+#'
+#' @examples
+export_results_log <- function(results, data_files, log_path) {
+  
+  # Logical success vector
+  results_lgl <- results$error %>% 
+    purrr::map_lgl(is_null)
+  
+  # Open log
+  luzlogr::openlog(log_path)
+  
+  # Write successful files
+  luzlogr::printlog(stringr::str_c("\n", "SUCCESS:"), ts = FALSE)
+  data_files %>% 
+    purrr::keep(results_lgl) %>% {
+      luzlogr::printlog(str_c(., "\n"), ts = FALSE)
+    }
+  
+  # Write failed files
+  luzlogr::printlog("FAILED:", ts = FALSE)
+  data_files %>% 
+    purrr::discard(results_lgl) %T>% {
+      luzlogr::printlog(stringr::str_c(., "\n"), ts = FALSE)
+    }
+  
+  # Write errors
+  luzlogr::printlog("ERRORS:", ts = FALSE)
+  luzlogr::printlog(results$error %>% purrr::discard(is_null), ts = FALSE)
+  
+  # Close log
+  luzlogr::closelog(sessionInfo = FALSE)
+}

@@ -21,5 +21,7 @@ Imports:
     odbc,
     jsonlite,
     ggplot2,
-    ggthemes
+    ggthemes,
+    luzlogr,
+    purrr
 RoxygenNote: 6.1.0
