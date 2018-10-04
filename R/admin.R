@@ -58,7 +58,7 @@ export_results_log <- function(results, data_files, log_path) {
   # Write failed files
   luzlogr::printlog("FAILED:", ts = FALSE)
   data_files %>% 
-    purrr::discard(results_lgl) %T>% {
+    purrr::discard(results_lgl) %>% {
       luzlogr::printlog(stringr::str_c(., "\n"), ts = FALSE)
     }
   
