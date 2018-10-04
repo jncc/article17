@@ -112,10 +112,21 @@ format_text <- function(text) {
     dplyr::mutate(value = stringi::stri_escape_unicode(value),
            value = stringr::str_replace_all(value, "\\\\u2022", "-"), # bullet point
            value = stringr::str_replace_all(value, "\\\\u25aa", "-"), # black small square
+           value = stringr::str_replace_all(value, "\\\\u2010", "-"), # hyphen
            value = stringr::str_replace_all(value, "\\\\u2013", "-"), # en-dash
            value = stringr::str_replace_all(value, "\\\\u2019", "'"), # opening apostrophe
            value = stringr::str_replace_all(value, "\\\\u2018", "'"), # closing apostrophe
-           value = stringr::str_replace_all(value, "\\\\u00d4\\\\u00eb\\\\u00f1", "<=")) # less than or equal
+           value = stringr::str_replace_all(value, "\\\\u00d4\\\\u00eb\\\\u00f1", "<="), # less than or equal
+           value = stringr::str_replace_all(value, "\\\\u201c", "'"), # left double quotation mark
+           value = stringr::str_replace_all(value, "\\\\u201d", "'"), # right double quotation mark
+           value = stringr::str_replace_all(value, "\\\\u201f", "'"), # double high-reversed-9 quotation mark
+           value = stringr::str_replace_all(value, "\\\\u00b0", " degree "), # degree sign
+           value = stringr::str_replace_all(value, "\\\\u2026", "..."), # horizontal ellipsis
+           value = stringr::str_replace_all(value, "\\\\u2020", "[1]"), # dagger footnote
+           value = stringr::str_replace_all(value, "\\\\u2021", "[2]"), # double dagger footnote
+           value = stringr::str_replace_all(value, "\\\\u2640", " female "), # female sign
+           value = stringr::str_replace_all(value, "00a0", ""), # No-break space
+           value = stringr::str_replace_all(value, "\\u", ""))
   
   text_formatting <- unlist(text_formatting)
 }
