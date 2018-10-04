@@ -130,7 +130,7 @@ format_text <- function(text) {
   
   # Handle miscellaneous characters
   text_formatting <- text_formatting %>%
-    dplyr::mutate(value = stringr::str_replace_all(value, "\\'", "'"))
+    dplyr::mutate(value = stringr::str_replace_all(value, "\\\\'", "'"))
   
   text_formatting <- unlist(text_formatting)
 }
