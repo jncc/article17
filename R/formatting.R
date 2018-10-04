@@ -126,10 +126,9 @@ format_text <- function(text) {
            value = stringr::str_replace_all(value, "\\\\u2021", "[2]"), # double dagger footnote
            value = stringr::str_replace_all(value, "\\\\u2640", " female "), # female sign
            value = stringr::str_replace_all(value, "00a0", ""), # No-break space
-           value = stringr::str_replace_all(value, "\\u", ""))
+           value = stringr::str_replace_all(value, "\\\\u", ""))
   
   text_formatting <- unlist(text_formatting)
 }
-#(format_text('"This • is a bullet point \r\n This ▪ is a black small square \r\n This – is a en-dash \r\n This ’ is an opening apostrophe \r\n This ‘ is a closing apostrophe"'))
 
 
