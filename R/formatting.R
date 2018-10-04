@@ -132,6 +132,10 @@ format_text <- function(text) {
   text_formatting <- text_formatting %>%
     dplyr::mutate(value = stringr::str_replace_all(value, "\\\\'", "'"))
   
+  # Remove trailing white space
+  text_formatting <- text_formatting %>%
+    dplyr::mutate(value = stringr::str_trim(value))
+  
   text_formatting <- unlist(text_formatting)
 }
 
