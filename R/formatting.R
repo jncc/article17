@@ -125,12 +125,13 @@ format_text <- function(text) {
            value = stringr::str_replace_all(value, "\\\\u2020", "[1]"), # dagger footnote
            value = stringr::str_replace_all(value, "\\\\u2021", "[2]"), # double dagger footnote
            value = stringr::str_replace_all(value, "\\\\u2640", " female "), # female sign
-           value = stringr::str_replace_all(value, "00a0", ""), # No-break space
            value = stringr::str_replace_all(value, "\\\\u", ""))
   
   # Handle miscellaneous characters
   text_formatting <- text_formatting %>%
-    dplyr::mutate(value = stringr::str_replace_all(value, "\\\\'", "'"))
+    dplyr::mutate(value = stringr::str_replace_all(value, "\\\\U00100202", "'"), # apostrophe
+                  value = stringr::str_replace_all(value, "00a0", ""), # No-break space
+                  value = stringr::str_replace_all(value, "\\\\'", "'"))
   
   # Remove trailing white space
   text_formatting <- text_formatting %>%
