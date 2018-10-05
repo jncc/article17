@@ -134,7 +134,7 @@ format_text <- function(text) {
   
   # Remove trailing white space
   text_formatting <- text_formatting %>%
-    dplyr::mutate(value = stringr::str_trim(value))
+    dplyr::mutate(value = stringr::str_squish(value))
   
   text_formatting <- unlist(text_formatting)
 }
