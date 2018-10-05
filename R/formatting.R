@@ -130,6 +130,7 @@ format_text <- function(text) {
   # Handle miscellaneous characters
   text_formatting <- text_formatting %>%
     dplyr::mutate(value = stringr::str_replace_all(value, "\\\\U00100202", "'"), # apostrophe
+                  value = stringr::str_replace_all(value, "’", "'"), # apostrophe
                   value = stringr::str_replace_all(value, "00a0", ""), # No-break space
                   value = stringr::str_replace_all(value, "\\\\'", "'"))
   
