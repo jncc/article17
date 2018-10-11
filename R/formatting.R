@@ -127,6 +127,10 @@ format_text <- function(text) {
            value = stringr::str_replace_all(value, "\\\\u2640", " female "), # female sign
            value = stringr::str_replace_all(value, "\\\\u", ""))
   
+  # Handle less than or equal sign
+  text_formatting <- text_formatting %>%
+    dplyr::mutate(value = stringr::str_replace_all(value, '≤', '<='))
+  
   # Handle miscellaneous characters
   text_formatting <- text_formatting %>%
     dplyr::mutate(value = stringr::str_replace_all(value, "\\\\U00100202", "'"), # apostrophe
