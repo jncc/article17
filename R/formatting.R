@@ -116,7 +116,7 @@ format_text <- function(text) {
            value = stringr::str_replace_all(value, "\\\\u2013", "-"), # en-dash
            value = stringr::str_replace_all(value, "\\\\u2019", "'"), # opening apostrophe
            value = stringr::str_replace_all(value, "\\\\u2018", "'"), # closing apostrophe
-           value = stringr::str_replace_all(value, "\\\\u00d4\\\\u00eb\\\\u00f1", "<="), # less than or equal
+          # value = stringr::str_replace_all(value, "\\\\u00d4\\\\u00eb\\\\u00f1", "<="), # less than or equal
            value = stringr::str_replace_all(value, "\\\\u201c", "'"), # left double quotation mark
            value = stringr::str_replace_all(value, "\\\\u201d", "'"), # right double quotation mark
            value = stringr::str_replace_all(value, "\\\\u201f", "'"), # double high-reversed-9 quotation mark
@@ -129,7 +129,7 @@ format_text <- function(text) {
   
   # Handle less than or equal sign
   text_formatting <- text_formatting %>%
-    dplyr::mutate(value = stringr::str_replace_all(value, '≤', '<='))
+    dplyr::mutate(value = stringr::str_replace_all(value, '≤', '<=')) # less than or equal
   
   # Handle miscellaneous characters
   text_formatting <- text_formatting %>%
