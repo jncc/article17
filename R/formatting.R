@@ -70,31 +70,6 @@ format_date <- function(date) {
     unlist()
 }
 
-#' Format future prospects
-#' 
-#' This function formats the uk future prospect fields
-#' removing the less than or equal character.
-#' 
-#' R seems to convert the less than or equal character
-#' to an equals character but exports as the original less than
-#' or equal character. This is converted into unicode by SQL Server
-#' Criteria also includes text one percent or less, so less than or 
-#' equal character removed
-#'
-#' @param text character, UK future prospects criteria
-#'
-#' @return character, UK future prospectes criteria with
-#' converted less than or equal sign
-#' @export
-#'
-#' @examples
-#' format_future_prospects("Negative - decreasing ≤1% (one percent or less) per year on average")
-format_future_prospects <- function(text) {
-  
-  text <- stringr::str_replace(text, "≤", "")
-  text <- stringr::str_replace(text, "=", "")
-}
-
 #' Format text
 #'
 #' This function formats free text handling NA characters, end of line

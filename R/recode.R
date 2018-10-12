@@ -501,3 +501,32 @@ recode_trends_conclusion <- function(trend) {
     unlist()
 }
 
+#' Recode future prospects UK fields
+#' 
+#' This function changes the less than or equal
+#' sign to ones that are handled in R
+#'
+#' @param prospect character, future prospects UK fields text
+#'
+#' @return character, future prospects UK fields text, less than or equal sign removed
+#' @export
+#'
+#' @examples
+#' recode_future_prospects_uk_fields ("Negative - decreasing ≤1% (one percent or less) per year on average")
+#' recode_future_prospects_uk_fields ("Very Negative - decreasing >1% (more than one percent) per year on average")
+#' recode_future_prospects_uk_fields ("Positive - increasing ≤1% (one percent or less) per year on average")
+#' recode_future_prospects_uk_fields ("Very Positive - increasing >1% (more than one percent) per year on average")
+recode_future_prospects_uk_fields <- function(prospect) {
+  
+  tibble::as.tibble(prospect) %>% 
+    dplyr::mutate(value = dplyr::case_when
+                  (
+                    stringr::str_detect(stringr::str_to_lower(value), "^negative") 
+                        ~ "Negative - decreasing <=1% (one percent or less) per year on average",
+                    stringr::str_detect(stringr::str_to_lower(value), "^positive") 
+                        ~ "Positive - increasing <=1% (one percent or less) per year on average",
+                    TRUE ~ value
+                  )) %>% 
+    unlist()
+}
+
