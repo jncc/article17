@@ -70,6 +70,27 @@ format_date <- function(date) {
     unlist()
 }
 
+#' Format future prospects
+#' 
+#' This function formats the uk future prospect fields
+#' converting the less than or equal sign to easier
+#' handled characters.
+#' 
+#' It should not be used for criteria with equals in as
+#' also converts equals to less than or equal
+#'
+#' @param text character, UK future prospects criteria
+#'
+#' @return character, UK future prospectes criteria with
+#' converted less than or equal sign
+#' @export
+#'
+#' @examples
+#' format_future_prospects("Negative - decreasing ≤1% (one percent or less) per year on average")
+format_future_prospects <- function(text) {
+  stringr::str_replace(text, "≤", "<=")
+}
+
 #' Format text
 #'
 #' This function formats free text handling NA characters, end of line
@@ -106,7 +127,7 @@ format_text <- function(text) {
   # Handle URL characters
   text_formatting <- text_formatting %>%
     dplyr::mutate(value = stringr::str_replace_all(value, '%20', ' '))
-  
+
   # Handle unicode characters
   text_formatting <- text_formatting %>% 
     dplyr::mutate(value = stringi::stri_escape_unicode(value),
@@ -116,7 +137,6 @@ format_text <- function(text) {
            value = stringr::str_replace_all(value, "\\\\u2013", "-"), # en-dash
            value = stringr::str_replace_all(value, "\\\\u2019", "'"), # opening apostrophe
            value = stringr::str_replace_all(value, "\\\\u2018", "'"), # closing apostrophe
-          # value = stringr::str_replace_all(value, "\\\\u00d4\\\\u00eb\\\\u00f1", "<="), # less than or equal
            value = stringr::str_replace_all(value, "\\\\u201c", "'"), # left double quotation mark
            value = stringr::str_replace_all(value, "\\\\u201d", "'"), # right double quotation mark
            value = stringr::str_replace_all(value, "\\\\u201f", "'"), # double high-reversed-9 quotation mark
