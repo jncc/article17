@@ -73,11 +73,10 @@ format_date <- function(date) {
 #' Format future prospects
 #' 
 #' This function formats the uk future prospect fields
-#' converting the less than or equal sign to easier
-#' handled characters.
+#' removing the less than or equal character.
 #' 
 #' It should not be used for criteria with equals in as
-#' also converts equals to less than or equal
+#' also removes the equal sign
 #'
 #' @param text character, UK future prospects criteria
 #'
@@ -88,7 +87,7 @@ format_date <- function(date) {
 #' @examples
 #' format_future_prospects("Negative - decreasing ≤1% (one percent or less) per year on average")
 format_future_prospects <- function(text) {
-  stringr::str_replace(text, "≤", "<=")
+  stringr::str_replace(text, "≤", "")
 }
 
 #' Format text
