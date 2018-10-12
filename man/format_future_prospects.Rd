@@ -18,8 +18,11 @@ This function formats the uk future prospect fields
 removing the less than or equal character.
 }
 \details{
-It should not be used for criteria with equals in as
-also removes the equal sign
+R seems to convert the less than or equal character
+to an equals character but exports as the original less than
+or equal character. This is converted into unicode by SQL Server
+Criteria also includes text one percent or less, so less than or 
+equal character removed
 }
 \examples{
 format_future_prospects("Negative - decreasing â‰¤1\% (one percent or less) per year on average")
