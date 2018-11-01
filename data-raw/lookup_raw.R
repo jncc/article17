@@ -9,7 +9,18 @@ name_look_up <- tibble::tribble(
 # code_look_up
 code_look_up <- tibble::tribble(
   ~code_old, ~code_new,
-  "S6265", "S1058"
+  "S5031",   "S2624",
+  "S5018",   "S2639",
+  "S1078",   "S6199",
+  "S1393",   "S6216",
+  "S6265",   "S1058",
+  "S1202",   "S6284",
+  "S2640",   "S6305",
+  "S2494",   "S6353",
+  "S1149",   "S6963",
+  "S1163",   "S6965",
+  "S1207",   "S6981",
+  "S1421",   "S6985"
 ) %>%  
   tibble::deframe() %>% 
   as.list()
