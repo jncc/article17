@@ -68,7 +68,7 @@ recode_population_units <- function(population_unit) {
     dplyr::mutate(value = dplyr::case_when
            (
              stringr::str_to_lower(value) ==  "number of adults"  ~  "adults",
-             stringr::str_to_lower(value) ==  "area covered by population in m2"  ~  "area",
+             stringr::str_detect(stringr::str_to_lower(value), "area covered by population") ~ "area",
              stringr::str_to_lower(value) ==  "number of breeding females"  ~  "bfemales",
              stringr::str_to_lower(value) ==  "number of calling males"  ~  "cmales",
              stringr::str_to_lower(value) ==  "number of colonies"  ~  "colonies",
