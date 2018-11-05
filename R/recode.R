@@ -4,19 +4,23 @@
 #' and 11.7 in data capture spreadsheet ask for change (yes or no) where 
 #' as in reporting tool the same categories ask for no change (yes or no)
 #'
-#' @param yes_no character, yes or no
+#' Blanks are converted to yes (no change) in the reporting tool as the
+#' reporting tool only stores two states yes or no
 #'
-#' @return character, yes and no are swopped around
+#' @param yes_no character, yes, no or NA_character_
+#'
+#' @return character, yes and no are swopped around, blank converted to yes
 #' @export
 #'
 #' @examples
-#' reverse_yes_no("yes")
-reverse_yes_no <- function(yes_no) {
+#' reverse_yes_no(c("Yes", "No", NA))
+reverse_yes_no <- function(yes_no_blank) {
   
-  tibble::as.tibble(yes_no) %>% 
+  tibble::as.tibble(yes_no_blank) %>% 
     dplyr::mutate(value = dplyr::case_when
            (
              stringr::str_to_lower(value) == "no" ~ "Yes",
+             is.na(value) ~ "Yes",
              stringr::str_to_lower(value) == "yes" ~ "No",
              TRUE ~ value
            )) %>% 
