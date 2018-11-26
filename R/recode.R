@@ -534,3 +534,30 @@ recode_future_prospects_uk_fields <- function(prospect) {
     unlist()
 }
 
+
+#' Recode rate of decrease UK fields
+#'
+#' This function changes the less than or equal
+#' sign to ones that are handled in R
+#'
+#' @param rate character, rate of decrease UK fields text
+#'
+#' @return character, rate of decrease UK fields text, less than or equal sign removed
+#' @export
+#'
+#' @examples
+#' recode_rate_of_decrease_uk_fields ("Decreasing ≤1% (one percent or less) per year on average")
+#' recode_rate_of_decrease_uk_fields ("Decreasing >1% (more than one percent) per year on average")
+recode_rate_of_decrease_uk_fields <- function(rate) {
+  
+  tibble::as.tibble(rate) %>% 
+    dplyr::mutate(value = dplyr::case_when
+                  (
+                    stringr::str_detect(stringr::str_to_lower(value), "one percent or less") 
+                    ~ "Decreasing <=1% (one percent or less) per year on average",
+                    TRUE ~ value
+                  )) %>% 
+    unlist()
+  
+}
+
