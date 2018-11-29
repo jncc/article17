@@ -66,7 +66,8 @@ format_date <- function(date) {
   tibble::as.tibble(date) %>% 
     dplyr::mutate(value = as.character(value)) %>% 
     dplyr::mutate(value = dplyr::if_else(stringr::str_detect(value, "^[0-9]{4}$"), stringr::str_c(value, "-"), value),
-           value = stringr::str_replace_all(value, "–", "-")) %>% 
+                  value = stringr::str_replace_all(value, "–", "-"),
+                  value = stringr::str_remove_all(value, " ")) %>% 
     unlist()
 }
 
