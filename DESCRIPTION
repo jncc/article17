@@ -24,5 +24,6 @@ Imports:
     ggthemes,
     luzlogr,
     purrr,
-    rlang
+    rlang,
+    scales
 RoxygenNote: 6.1.1
