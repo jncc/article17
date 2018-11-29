@@ -38,19 +38,19 @@ graph_category_percentage <- function(dataset, filter_column, x_column) {
       })
       
       output$dataset_plot = renderPlot({
-        ggplot2::ggplot(selected_data(), aes(x = reorder(!!x_column, percent), y = percent)) +
-          geom_bar(stat = "identity", fill = "indianred3", color = "black") +
-          geom_text(aes(label = percent_label), 
+        ggplot2::ggplot(selected_data(), ggplot2::aes(x = reorder(!!x_column, percent), y = percent)) +
+          ggplot2::geom_bar(stat = "identity", fill = "indianred3", color = "black") +
+          ggplot2::geom_text(ggplot2::aes(label = percent_label), 
                     hjust = -0.2) +
-          labs(x = NULL, 
+          ggplot2::labs(x = NULL, 
                y = NULL, 
                title = str_glue("Percentage of each category within {input$choice}")) +
-          scale_y_continuous(breaks = seq(0, 1, 0.05),
+          ggplot2::scale_y_continuous(breaks = seq(0, 1, 0.05),
                              limits = c(0, 1), 
                              labels = percent) + 
-          coord_flip() +
-          theme_minimal() +
-          theme(plot.title = element_text(face = "bold", size = 16, hjust = 0.08),
+          ggplot2::coord_flip() +
+          ggplot2::theme_minimal() +
+          ggplot2::theme(plot.title = element_text(face = "bold", size = 16, hjust = 0.08),
                 axis.text = element_text(face = "bold"),
                 axis.text.x = element_text(size = 12),
                 axis.text.y = element_text(size = 16),
