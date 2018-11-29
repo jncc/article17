@@ -44,7 +44,7 @@ graph_category_percentage <- function(dataset, filter_column, x_column) {
                     hjust = -0.2) +
           ggplot2::labs(x = NULL, 
                y = NULL, 
-               title = str_glue("Percentage of each category within {input$choice}")) +
+               title = stringr::str_glue("Percentage of each category within {input$choice}")) +
           ggplot2::scale_y_continuous(breaks = seq(0, 1, 0.05),
                              limits = c(0, 1), 
                              labels = percent) + 
