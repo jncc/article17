@@ -23,5 +23,6 @@ Imports:
     ggplot2,
     ggthemes,
     luzlogr,
-    purrr
+    purrr,
+    rlang
 RoxygenNote: 6.1.1
