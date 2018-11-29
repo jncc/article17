@@ -50,13 +50,13 @@ graph_category_percentage <- function(dataset, filter_column, x_column) {
                              labels = scales::percent) + 
           ggplot2::coord_flip() +
           ggplot2::theme_minimal() +
-          ggplot2::theme(plot.title = element_text(face = "bold", size = 16, hjust = 0.08),
-                axis.text = element_text(face = "bold"),
-                axis.text.x = element_text(size = 12),
-                axis.text.y = element_text(size = 16),
-                panel.grid.major.x = element_line(linetype = "dashed",colour = "#888888"),
-                panel.grid.minor.x = element_blank(),
-                panel.grid.major.y = element_blank()
+          ggplot2::theme(plot.title = ggplot2::element_text(face = "bold", size = 16, hjust = 0.08),
+                axis.text = ggplot2::element_text(face = "bold"),
+                axis.text.x = ggplot2::element_text(size = 12),
+                axis.text.y = ggplot2::element_text(size = 16),
+                panel.grid.major.x = ggplot2::element_line(linetype = "dashed",colour = "#888888"),
+                panel.grid.minor.x = ggplot2::element_blank(),
+                panel.grid.major.y = ggplot2::element_blank()
           )
       })
     },
