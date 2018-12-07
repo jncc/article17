@@ -24,16 +24,18 @@
 #' }
 "code_look_up"
 
-
 #' Species audit notes categories
 #' 
 #' A dataset containing the Article 17 species audit notes categories
 #' 
-#' @format A tibble with 80 rows and 3 variables
+#' @format A tibble with 134 rows and 6 variables
 #' \describe{
+#'   \item{reporting_type}{identifies notes as species type}
 #'   \item{reporting_code}{species category's reporting code}
 #'   \item{field_label}{species category's descriptive names, including reporting code}
 #'   \item{entity_table_name}{reporting tool table name that contains column for the species category}
+#'   \item{field_name}{field name in aggregate spreadsheet used to transfer notes into reporting tool}
+#'   \item{spreadsheet}{aggregate spreadsheet name containing the audit note}
 #' }
 "notes_species_look_up"
 
@@ -41,11 +43,15 @@
 #' 
 #' A dataset containing the Article 17 habitat audit notes categories
 #' 
-#' @format A tibble with 68 rows and 3 variables
+#' @format A tibble with 109 rows and 6 variables
 #' \describe{
+#'   \item{reporting_type}{identifies notes as habitat type}
+#'   \item{reporting_type}{either species or habitat}
 #'   \item{reporting_code}{habitat category's reporting code}
 #'   \item{field_label}{habitat category's descriptive names, including reporting code}
 #'   \item{entity_table_name}{reporting tool table name that contains column for the habitat category}
+#'   \item{field_name}{field name in aggregate spreadsheet used to transfer notes into reporting tool}
+#'   \item{spreadsheet}{aggregate spreadsheet name containing the audit note}
 #' }
 "notes_habitat_look_up"
 
