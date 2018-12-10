@@ -136,7 +136,11 @@ format_text <- function(text) {
     dplyr::mutate(value = stringr::str_replace_all(value, "\\\\U00100202", "'"), # apostrophe
                   value = stringr::str_replace_all(value, "’", "'"), # apostrophe
                   value = stringr::str_replace_all(value, "00a0", ""), # No-break space
-                  value = stringr::str_replace_all(value, "00f6", "o"),# ö not handled by Access database
+                  value = stringr::str_replace_all(value, "00f6", "o"), # ö not handled by Access database
+                  value = stringr::str_replace_all(value, "00d8", "OE"), # Ø not handled by Access database
+                  value = stringr::str_replace_all(value, "00f1", "n"), # ñ not handled by Access database
+                  value = stringr::str_replace_all(value, "00c0", "A"), # À not handled by Access database
+                  value = stringr::str_replace_all(value, "00e9", "e"), # é not handled by Access database
                   value = stringr::str_replace_all(value, "\\\\'", "'"))
   
   # Remove trailing white space
