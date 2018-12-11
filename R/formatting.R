@@ -141,6 +141,7 @@ format_text <- function(text) {
                   value = stringr::str_replace_all(value, "00f1", "n"), # ñ not handled by Access database
                   value = stringr::str_replace_all(value, "00c0", "A"), # À not handled by Access database
                   value = stringr::str_replace_all(value, "00e9", "e"), # é not handled by Access database
+                  value = stringr::str_replace_all(value, "00e1", "a"), # á not handled by Access database
                   value = stringr::str_replace_all(value, "\\\\'", "'"))
   
   # Remove trailing white space
