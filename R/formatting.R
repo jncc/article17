@@ -136,13 +136,24 @@ format_text <- function(text) {
     dplyr::mutate(value = stringr::str_replace_all(value, "\\\\U00100202", "'"), # apostrophe
                   value = stringr::str_replace_all(value, "’", "'"), # apostrophe
                   value = stringr::str_replace_all(value, "00a0", ""), # No-break space
-                  value = stringr::str_replace_all(value, "00f6", "o"), # ö not handled by Access database
-                  value = stringr::str_replace_all(value, "00d8", "OE"), # Ø not handled by Access database
-                  value = stringr::str_replace_all(value, "00f1", "n"), # ñ not handled by Access database
-                  value = stringr::str_replace_all(value, "00c0", "A"), # À not handled by Access database
-                  value = stringr::str_replace_all(value, "00e9", "e"), # é not handled by Access database
-                  value = stringr::str_replace_all(value, "00e1", "a"), # á not handled by Access database
-                  value = stringr::str_replace_all(value, "00fc", "u"), # ü not handled by Access database
+                  value = stringr::str_replace_all(value, "00f6", "o"), # ö
+                  value = stringr::str_replace_all(value, "00d8", "OE"), # Ø
+                  value = stringr::str_replace_all(value, "00f1", "n"), # ñ
+                  value = stringr::str_replace_all(value, "00c0", "A"), # À
+                  value = stringr::str_replace_all(value, "00e9", "e"), # é
+                  value = stringr::str_replace_all(value, "00e1", "a"), # á
+                  value = stringr::str_replace_all(value, "00fc", "u"), # ü
+                  value = stringr::str_replace_all(value, "015d", "s"), # ŝ
+                  value = stringr::str_replace_all(value, "u0161", "us"), # Juŝkaitis
+                  value = stringr::str_replace_all(value, "016b", "u"), # ū
+                  value = stringr::str_replace_all(value, "t0117", "te"), # Kitrytė
+                  value = stringr::str_replace_all(value, "010d", "c"), # č
+                  value = stringr::str_replace_all(value, "u0159", "ur"), # Juřičková
+                  value = stringr::str_replace_all(value, "00e4", "a"), # ä
+                  value = stringr::str_replace_all(value, "00d6", "O"), # Ö
+                  value = stringr::str_replace_all(value, "00e7", "c"), # ç
+                  value = stringr::str_replace_all(value, "00e3", "a"), # ã
+                  value = stringr::str_replace_all(value, "010d", "c"), # č
                   value = stringr::str_replace_all(value, "\\\\'", "'"))
   
   # Remove trailing white space
