@@ -84,6 +84,7 @@ format_date <- function(date) {
 #'
 #' @examples
 #' format_text("▪ #NAUnformatted%20text list starting with NA")
+#' format_text("ÀáäãčçéÖöØñřŝüū")
 format_text <- function(text) {
   
   text_formatting <- tibble::as.tibble(text)
@@ -108,7 +109,12 @@ format_text <- function(text) {
   text_formatting <- text_formatting %>%
     dplyr::mutate(value = stringr::str_replace_all(value, '%20', ' '))
 
+  
   # Handle unicode characters
+  # https://stackoverflow.com/questions/9934856/removing-non-ascii-characters-from-data-files
+  text_formatting <- text_formatting %>% 
+    dplyr::mutate(values = stringi::stri_trans_general(value, "latin-ascii"))
+  
   text_formatting <- text_formatting %>% 
     dplyr::mutate(value = stringi::stri_escape_unicode(value),
            value = stringr::str_replace_all(value, "\\\\u2022", "-"), # bullet point
@@ -132,28 +138,28 @@ format_text <- function(text) {
     dplyr::mutate(value = stringr::str_replace_all(value, '≤', '<=')) # less than or equal
   
   # Handle miscellaneous characters
+  # Most of these should be handled by stri_trans_general
   text_formatting <- text_formatting %>%
     dplyr::mutate(value = stringr::str_replace_all(value, "\\\\U00100202", "'"), # apostrophe
                   value = stringr::str_replace_all(value, "’", "'"), # apostrophe
                   value = stringr::str_replace_all(value, "00a0", ""), # No-break space
-                  value = stringr::str_replace_all(value, "00f6", "o"), # ö
-                  value = stringr::str_replace_all(value, "00d8", "O"), # Ø
-                  value = stringr::str_replace_all(value, "00f1", "n"), # ñ
-                  value = stringr::str_replace_all(value, "00c0", "A"), # À
-                  value = stringr::str_replace_all(value, "00e9", "e"), # é
-                  value = stringr::str_replace_all(value, "00e1", "a"), # á
-                  value = stringr::str_replace_all(value, "00fc", "u"), # ü
-                  value = stringr::str_replace_all(value, "015d", "s"), # ŝ
-                  value = stringr::str_replace_all(value, "u0161", "us"), # Juŝkaitis
-                  value = stringr::str_replace_all(value, "016b", "u"), # ū
-                  value = stringr::str_replace_all(value, "t0117", "te"), # Kitrytė
-                  value = stringr::str_replace_all(value, "010d", "c"), # č
-                  value = stringr::str_replace_all(value, "u0159", "ur"), # Juřičková
-                  value = stringr::str_replace_all(value, "00e4", "a"), # ä
-                  value = stringr::str_replace_all(value, "00d6", "O"), # Ö
-                  value = stringr::str_replace_all(value, "00e7", "c"), # ç
-                  value = stringr::str_replace_all(value, "00e3", "a"), # ã
-                  value = stringr::str_replace_all(value, "010d", "c"), # č
+                #  value = stringr::str_replace_all(value, "00f6", "o"), # ö
+                #  value = stringr::str_replace_all(value, "00d8", "O"), # Ø
+                #  value = stringr::str_replace_all(value, "00f1", "n"), # ñ
+                #  value = stringr::str_replace_all(value, "00c0", "A"), # À
+                #  value = stringr::str_replace_all(value, "00e9", "e"), # é
+                #  value = stringr::str_replace_all(value, "00e1", "a"), # á
+                #  value = stringr::str_replace_all(value, "00fc", "u"), # ü
+                # value = stringr::str_replace_all(value, "015d", "s"), # ŝ
+                #  value = stringr::str_replace_all(value, "u0161", "us"), # Juŝkaitis
+                #  value = stringr::str_replace_all(value, "016b", "u"), # ū
+                #  value = stringr::str_replace_all(value, "t0117", "te"), # Kitrytė
+                #  value = stringr::str_replace_all(value, "010d", "c"), # č
+                #  value = stringr::str_replace_all(value, "u0159", "ur"), # Juřičková
+                #  value = stringr::str_replace_all(value, "00e4", "a"), # ä
+                #  value = stringr::str_replace_all(value, "00d6", "O"), # Ö
+                #  value = stringr::str_replace_all(value, "00e7", "c"), # ç
+                #  value = stringr::str_replace_all(value, "00e3", "a"), # ã
                   value = stringr::str_replace_all(value, "\\\\'", "'"))
   
   # Remove trailing white space
@@ -162,5 +168,4 @@ format_text <- function(text) {
   
   text_formatting <- unlist(text_formatting)
 }
-
 
