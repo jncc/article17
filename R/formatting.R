@@ -137,7 +137,7 @@ format_text <- function(text) {
                   value = stringr::str_replace_all(value, "’", "'"), # apostrophe
                   value = stringr::str_replace_all(value, "00a0", ""), # No-break space
                   value = stringr::str_replace_all(value, "00f6", "o"), # ö
-                  value = stringr::str_replace_all(value, "00d8", "OE"), # Ø
+                  value = stringr::str_replace_all(value, "00d8", "O"), # Ø
                   value = stringr::str_replace_all(value, "00f1", "n"), # ñ
                   value = stringr::str_replace_all(value, "00c0", "A"), # À
                   value = stringr::str_replace_all(value, "00e9", "e"), # é
