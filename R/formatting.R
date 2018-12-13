@@ -144,6 +144,7 @@ format_text <- function(text) {
                   value = stringr::str_replace_all(value, "00a0", ""), # No-break space
                   value = stringr::str_replace_all(value, "00b1", "+-"), # plus-minus sign
                   value = stringr::str_replace_all(value, "00a3", "(pounds)"), # pound sign
+                  value = stringr::str_replace_all(value, "00b3", "3"), # superscript 3
                   #value = stringr::str_replace_all(value, "00f6", "o"), # ö
                   #value = stringr::str_replace_all(value, "00d8", "O"), # Ø
                   #value = stringr::str_replace_all(value, "00f1", "n"), # ñ
