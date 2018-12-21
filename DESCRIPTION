@@ -27,3 +27,7 @@ Imports:
     rlang,
     scales
 RoxygenNote: 6.1.1
+Suggests: 
+    testthat,
+    spelling
+Language: en-US
