@@ -75,8 +75,11 @@ export_results_log <- function(results, data_files, log_path) {
 #' This function creates the reporting tool environment used to
 #' store the id values required as primary and foreign keys in
 #' the reporting tool database
+#' 
+#' @return
+#' @export
 #'
-#'
+#' @examples
 create_reporting_tool_environment <- function() {
   
   if (!exists("reporting_tool", mode = "environment")) {
