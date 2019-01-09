@@ -27,9 +27,7 @@ Imports:
     rlang,
     scales,
     janitor,
-    readxl,
-    tidyr,
-    readr
+    readxl
 RoxygenNote: 6.1.1
 Suggests: 
     testthat,
