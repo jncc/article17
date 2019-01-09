@@ -4,12 +4,15 @@
 \alias{read_aggregation_spreadsheet}
 \title{Read aggregation spreadsheet}
 \usage{
-read_aggregation_spreadsheet(spreadsheet_name, skip_rows = 7)
+read_aggregation_spreadsheet(spreadsheet_name, skip_rows = 7,
+  spreadsheet_path = feature_path)
 }
 \arguments{
 \item{spreadsheet_name}{character, name of spreadsheet to read}
 
 \item{skip_rows}{integer, number of rows to skip at top of spreadsheet}
+
+\item{spreadsheet_path}{character, path to spreadsheet to read}
 }
 \value{
 dataframe, dataframe containing the three required columns

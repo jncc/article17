@@ -5,16 +5,18 @@
 #'
 #' @param spreadsheet_name character, name of spreadsheet to read
 #' @param skip_rows integer, number of rows to skip at top of spreadsheet
+#' @param spreadsheet_path character, path to spreadsheet to read
 #'
 #' @return dataframe, dataframe containing the three required columns
 #' @export
 #'
 #' @examples
 #' read_aggregation_spreadsheet("1 General Information")
-read_aggregation_spreadsheet <- function(spreadsheet_name, skip_rows = 7) {
+read_aggregation_spreadsheet <- function(spreadsheet_name, skip_rows = 7, 
+                                         spreadsheet_path = feature_path) {
   
   # Read in spreadsheet and filter on completed species ready for aggregation
-  readxl::read_excel(feature_path, sheet = spreadsheet_name, skip = skip_rows) %>% 
+  readxl::read_excel(spreadsheet_path, sheet = spreadsheet_name, skip = skip_rows) %>% 
     janitor::clean_names() %>% 
     dplyr::select(field_name, uk_level_entry, uk_level_audit_notes) %>% 
     dplyr::filter(!is.na(field_name))
