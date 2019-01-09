@@ -4,11 +4,14 @@
 \name{notes_species_look_up}
 \alias{notes_species_look_up}
 \title{Species audit notes categories}
-\format{A tibble with 80 rows and 3 variables
+\format{A tibble with 134 rows and 6 variables
 \describe{
+  \item{reporting_type}{identifies notes as species type}
   \item{reporting_code}{species category's reporting code}
   \item{field_label}{species category's descriptive names, including reporting code}
   \item{entity_table_name}{reporting tool table name that contains column for the species category}
+  \item{field_name}{field name in aggregate spreadsheet used to transfer notes into reporting tool}
+  \item{spreadsheet}{aggregate spreadsheet name containing the audit note}
 }}
 \usage{
 notes_species_look_up
