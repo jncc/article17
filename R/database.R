@@ -59,3 +59,33 @@ get_sqlserver_connection_string <- function(keyring_name, service_name, keyring 
   }
   conn_string <- stringr::str_glue("MSSQL:server={server};database={database};trusted_connection=yes")
 }
+
+#' Create reporting tool environment
+#'
+#' This function creates the reporting tool environment used to
+#' store the id values required as primary and foreign keys in
+#' the reporting tool database
+#' 
+#' @return
+#' @export
+#'
+#' @examples
+create_reporting_tool_environment <- function() {
+  
+  if (!exists("reporting_tool", mode = "environment")) {
+    assign("reporting_tool", new.env(parent = emptyenv()), envir = globalenv())
+    
+    # assign values in environment
+    assign("latest_species_id", 0L, envir = reporting_tool, inherits = FALSE)
+    assign("latest_species_annex_v_id", 0L, envir = reporting_tool, inherits = FALSE)
+    assign("latest_sr_id", 0L, envir = reporting_tool, inherits = FALSE)
+    assign("latest_change_id", 0L, envir = reporting_tool, inherits = FALSE)
+    assign("latest_measure_info_id", 0L, envir = reporting_tool, inherits = FALSE)
+    assign("latest_measure_id", 0L, envir = reporting_tool, inherits = FALSE)
+    assign("latest_pressure_id", 0L, envir = reporting_tool, inherits = FALSE)
+    assign("latest_pressure_info_id", 0L, envir = reporting_tool, inherits = FALSE)
+    assign("latest_notes_id", 0L, envir = reporting_tool, inherits = FALSE)
+    assign("latest_habitat_id", 0L, envir = reporting_tool, inherits = FALSE)
+    assign("latest_hr_id", 0L, envir = reporting_tool, inherits = FALSE)
+  }
+}
