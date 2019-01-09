@@ -25,7 +25,11 @@ Imports:
     luzlogr,
     purrr,
     rlang,
-    scales
+    scales,
+    janitor,
+    readxl,
+    tidyr,
+    readr
 RoxygenNote: 6.1.1
 Suggests: 
     testthat,
