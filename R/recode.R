@@ -47,8 +47,8 @@ recode_methods_used <- function(methods_used) {
            (
              stringr::str_detect(stringr::str_to_lower(value), "complete survey") ~ "completeSurvey",
              stringr::str_detect(stringr::str_to_lower(value), "extrapolation") ~ "estimatePartial",
-             stringr::str_detect(stringr::str_to_lower(value), "expert opinion") ~ "estimateExpert",
-             stringr::str_detect(stringr::str_to_lower(value), "insufficient or no data") ~ "absentData",
+             stringr::str_detect(stringr::str_to_lower(value), "^based mainly on expert opinion ") ~ "estimateExpert",
+             stringr::str_detect(stringr::str_to_lower(value), "^insufficient or no data") ~ "absentData",
              TRUE ~ value
            )) %>% 
     unlist()
@@ -118,8 +118,8 @@ recode_trends <- function(trends) {
              stringr::str_detect(stringr::str_to_lower(value), "decreasing") ~ "D",
              stringr::str_detect(stringr::str_to_lower(value), "increasing") ~ "I",
              stringr::str_detect(stringr::str_to_lower(value), "stable") ~ "S",
-             stringr::str_detect(stringr::str_to_lower(value), "uncertain") ~ "U",
-             stringr::str_detect(stringr::str_to_lower(value), "unknown") ~ "Unk",
+             stringr::str_detect(stringr::str_to_lower(value), "^uncertain") ~ "U",
+             stringr::str_detect(stringr::str_to_lower(value), "^unknown") ~ "Unk",
              TRUE ~ value
            )) %>% 
     unlist()

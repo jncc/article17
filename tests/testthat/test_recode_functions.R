@@ -10,6 +10,8 @@ test_that("methods used correctly recoded", {
   expect_match(recode_methods_used("Complete survey or a statistically robust estimate"), "completeSurvey")
   expect_match(recode_methods_used("Based mainly on expert opinion with very limited data"), "estimateExpert")
   expect_match(recode_methods_used("Based mainly on extrapolation from a limited amount of data"), "estimatePartial")
+  expect_match(recode_methods_used("MANUAL CHECK REQUIRED: Insufficient or no data available OR Based mainly on expert opinion with very limited data"), 
+               "MANUAL CHECK REQUIRED: Insufficient or no data available OR Based mainly on expert opinion with very limited data")
 })
 
 test_that("population units correctly recoded", {
@@ -42,6 +44,8 @@ test_that("trends correctly recoded", {
   expect_match(recode_trends("Stable (0)"), "S")
   expect_match(recode_trends("Uncertain (u)"), "U")
   expect_match(recode_trends("Unknown (x)"), "Unk")
+  expect_match(recode_trends("MANUAL SELECTION REQUIRED: one or more countries have selected either Uncertain or Unknown"), 
+               "MANUAL SELECTION REQUIRED: one or more countries have selected either Uncertain or Unknown")
 })
 
 test_that("favourable range operators correctly recoded", {
