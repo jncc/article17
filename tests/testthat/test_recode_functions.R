@@ -156,5 +156,5 @@ test_that("future prospects uk fields correctly recoded", {
 
 test_that("rate of decrease uk fields correctly recoded", {
   expect_true(nchar(recode_rate_of_decrease_uk_fields("Decreasing ≤1% (one percent or less) per year on average")) == 57L)
-  expect_true(nchar(recode_rate_of_decrease_uk_fields("Decreasing >1% (more than one percent) per year on average ")) == 59L)
+  expect_true(nchar(recode_rate_of_decrease_uk_fields("Decreasing >1% (more than one percent) per year on average")) == 58L)
 })
