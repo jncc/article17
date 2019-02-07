@@ -158,3 +158,21 @@ test_that("rate of decrease uk fields correctly recoded", {
   expect_true(nchar(recode_rate_of_decrease_uk_fields("Decreasing ≤1% (one percent or less) per year on average")) == 57L)
   expect_true(nchar(recode_rate_of_decrease_uk_fields("Decreasing >1% (more than one percent) per year on average")) == 58L)
 })
+
+test_that("country abbreviations correctly encoded", {
+  expect_match(recode_country_abbreviation("England"), "EN")
+  expect_match(recode_country_abbreviation("N.Ireland"), "NI")
+  expect_match(recode_country_abbreviation("N. Ireland"), "NI")
+  expect_match(recode_country_abbreviation("Scotland"), "SC")
+  expect_match(recode_country_abbreviation("Wales"), "WA")
+  expect_match(recode_country_abbreviation("Offshore"), "OFF")
+})
+
+test_that("country agency correctly encoded", {
+  expect_match(recode_country_agency("England"), "Natural England")
+  expect_match(recode_country_agency("N.Ireland"), "Northern Ireland Environment Agency")
+  expect_match(recode_country_agency("N. Ireland"), "Northern Ireland Environment Agency")
+  expect_match(recode_country_agency("Scotland"), "Scottish Natural Heritage")
+  expect_match(recode_country_agency("Wales"), "Natural Resources Wales")
+  expect_match(recode_country_agency("Offshore"), "Joint Nature Conservation Committee")
+})

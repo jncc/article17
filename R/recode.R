@@ -563,3 +563,59 @@ recode_rate_of_decrease_uk_fields <- function(rate) {
   
 }
 
+#' Recode country to abbrevation
+#' 
+#' This function recodes the country to a corresponding
+#' 2 letter abbreviation. This is used for example in
+#' the country file paths
+#'
+#' @param country character, country name
+#'
+#' @return character, country abbreviation
+#' @export
+#'
+#' @examples
+#' recode_country_abbreviation("N.Ireland")
+recode_country_abbreviation <- function(country) {
+  
+  tibble::as.tibble(country) %>% 
+    dplyr::mutate(value = dplyr::case_when
+                  (
+                    stringr::str_to_lower(value) == "england" ~ "EN",
+                    stringr::str_remove(stringr::str_to_lower(value), "[[:space:]]+") == "n.ireland" ~ "NI",
+                    stringr::str_to_lower(value) == "scotland" ~ "SC",
+                    stringr::str_to_lower(value) == "wales" ~ "WA",
+                    stringr::str_to_lower(value) == "offshore" ~ "OFF",
+                    TRUE ~ value
+                  )) %>% 
+    unlist()
+}
+
+#' Recode country to country agency
+#'
+#' This function recodes the country to the statutary
+#' nature conservation body (country agency) within that 
+#' country
+#'
+#' @param country character, country name
+#'
+#' @return character, country agency
+#' @export
+#'
+#' @examples
+#' recode_country_agency("N.Ireland")
+recode_country_agency <- function(country) {
+  
+  tibble::as.tibble(country) %>% 
+    dplyr::mutate(value = dplyr::case_when
+                  (
+                    stringr::str_to_lower(value) == "england" ~ "Natural England",
+                    stringr::str_remove(stringr::str_to_lower(value), "[[:space:]]+") == "n.ireland" ~ "Northern Ireland Environment Agency",
+                    stringr::str_to_lower(value) == "scotland" ~ "Scottish Natural Heritage",
+                    stringr::str_to_lower(value) == "wales" ~ "Natural Resources Wales",
+                    stringr::str_to_lower(value) == "offshore" ~ "Joint Nature Conservation Committee",
+                    TRUE ~ value
+                  )) %>% 
+    unlist()
+}
+
