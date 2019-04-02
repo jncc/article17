@@ -79,6 +79,7 @@ recode_population_units <- function(population_unit) {
              stringr::str_to_lower(value) ==  "number of flowering stems"  ~  "fstems",
              stringr::str_to_lower(value) ==  "number of map 10x10 km grid cells"  ~  "grids10x10",
              stringr::str_to_lower(value) ==  "number of map 1x1 km grid cells"  ~  "grids1x1",
+             stringr::str_to_lower(value) ==  "1 x 1 km grids"  ~  "grids1x1",
              stringr::str_to_lower(value) ==  "number of map 2x2 km grid cells"  ~  "grids2x2",
              stringr::str_to_lower(value) ==  "number of map 5x5 km grid cells"  ~  "grids5x5",
              stringr::str_to_lower(value) ==  "number of individuals"  ~  "i",
@@ -92,6 +93,7 @@ recode_population_units <- function(population_unit) {
              stringr::str_to_lower(value) ==  "number of inhabited stones/boulders"  ~  "stones",
              stringr::str_to_lower(value) ==  "number of subadults"  ~  "subadults",
              stringr::str_to_lower(value) ==  "number of inhabited trees"  ~  "trees",
+             stringr::str_to_lower(value) ==  "number of occupied trees"  ~  "trees",
              stringr::str_to_lower(value) ==  "number of tufts"  ~  "tufts",
              TRUE ~ value
            )) %>% 
