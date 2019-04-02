@@ -27,6 +27,7 @@ test_that("population units correctly recoded", {
   expect_match(recode_population_units("number of map 2x2 km grid cells"), "grids2x2")
   expect_match(recode_population_units("number of map 5x5 km grid cells"), "grids5x5")
   expect_match(recode_population_units("number of individuals"), "i")
+  expect_match(recode_population_units("individuals"), "i")
   expect_match(recode_population_units("number of wintering individuals"), "iwintering")
   expect_match(recode_population_units("length of inhabited feature in km"), "length")
   expect_match(recode_population_units("number of localities"), "localities")

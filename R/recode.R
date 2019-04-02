@@ -83,6 +83,7 @@ recode_population_units <- function(population_unit) {
              stringr::str_to_lower(value) ==  "number of map 2x2 km grid cells"  ~  "grids2x2",
              stringr::str_to_lower(value) ==  "number of map 5x5 km grid cells"  ~  "grids5x5",
              stringr::str_to_lower(value) ==  "number of individuals"  ~  "i",
+             stringr::str_to_lower(value) ==  "individuals"  ~  "i",
              stringr::str_to_lower(value) ==  "number of wintering individuals"  ~  "iwintering",
              stringr::str_to_lower(value) ==  "length of inhabited feature in km"  ~  "length",
              stringr::str_to_lower(value) ==  "number of localities"  ~  "localities",
