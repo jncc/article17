@@ -48,7 +48,9 @@ recode_methods_used <- function(methods_used) {
              stringr::str_detect(stringr::str_to_lower(value), "complete survey") ~ "completeSurvey",
              stringr::str_detect(stringr::str_to_lower(value), "extrapolation") ~ "estimatePartial",
              stringr::str_detect(stringr::str_to_lower(value), "^based mainly on expert opinion") ~ "estimateExpert",
+             stringr::str_detect(stringr::str_to_lower(value), "^based on expert opinion") ~ "estimateExpert",
              stringr::str_detect(stringr::str_to_lower(value), "^insufficient or no data") ~ "absentData",
+             stringr::str_to_lower(value) == "insufficient information" ~ "absentData",
              TRUE ~ value
            )) %>% 
     unlist()
@@ -424,9 +426,9 @@ recode_measures_response <- function(response) {
   tibble::as.tibble(response) %>% 
     dplyr::mutate(value = dplyr::case_when
            (
-             stringr::str_detect(stringr::str_to_lower(value), "^long-term") ~ "lonTerm",
-             stringr::str_detect(stringr::str_to_lower(value), "^medium-term") ~ "medTerm",
-             stringr::str_detect(stringr::str_to_lower(value), "^short-term") ~ "srtTerm",
+             stringr::str_detect(stringr::str_to_lower(value), "^long") ~ "lonTerm",
+             stringr::str_detect(stringr::str_to_lower(value), "^medium") ~ "medTerm",
+             stringr::str_detect(stringr::str_to_lower(value), "^short") ~ "srtTerm",
              TRUE ~ value
            )) %>% 
     unlist()
@@ -478,6 +480,7 @@ recode_assessments <- function(assessments) {
              stringr::str_detect(stringr::str_to_lower(value), "^favourable") ~ "FV",
              stringr::str_detect(stringr::str_to_lower(value), "^unfavourable-inadequate") ~ "U1",
              stringr::str_detect(stringr::str_to_lower(value), "^unfavourable-bad") ~ "U2",
+             stringr::str_detect(stringr::str_to_lower(value), "^unfavourable bad") ~ "U2",
              stringr::str_detect(stringr::str_to_lower(value), "^unknown") ~ "XX",
              TRUE ~ value
            )) %>% 
@@ -502,7 +505,9 @@ recode_trends_conclusion <- function(trend) {
     dplyr::mutate(value = dplyr::case_when
            (
              stringr::str_detect(stringr::str_to_lower(value), "^deteriorating") ~ "D",
+             stringr::str_detect(stringr::str_to_lower(value), "^decreasing") ~ "D",
              stringr::str_detect(stringr::str_to_lower(value), "^improving") ~ "I",
+             stringr::str_detect(stringr::str_to_lower(value), "^increasing") ~ "I",
              stringr::str_detect(stringr::str_to_lower(value), "^stable") ~ "S",
              stringr::str_detect(stringr::str_to_lower(value), "^unknown") ~ "Unk",
              TRUE ~ value

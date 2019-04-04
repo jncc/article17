@@ -7,8 +7,10 @@ test_that("yes and no are reversed", {
 
 test_that("methods used correctly recoded", {
   expect_match(recode_methods_used("Insufficient or no data available"), "absentData")
+  expect_match(recode_methods_used("Insufficient information"), "absentData")
   expect_match(recode_methods_used("Complete survey or a statistically robust estimate"), "completeSurvey")
   expect_match(recode_methods_used("Based mainly on expert opinion with very limited data"), "estimateExpert")
+  expect_match(recode_methods_used("Based on expert opinion with very limited data"), "estimateExpert")
   expect_match(recode_methods_used("Based mainly on extrapolation from a limited amount of data"), "estimatePartial")
   expect_match(recode_methods_used("MANUAL CHECK REQUIRED: Insufficient or no data available OR Based mainly on expert opinion with very limited data"), 
                "MANUAL CHECK REQUIRED: Insufficient or no data available OR Based mainly on expert opinion with very limited data")
@@ -123,6 +125,7 @@ test_that("measures location correctly recoded", {
 test_that("measures response correctly recoded", {
   expect_match(recode_measures_response("Long-term results (after 2030)"), "lonTerm")
   expect_match(recode_measures_response("Medium-term results (within the next two reporting periods, 2019-2030)"), "medTerm")
+  expect_match(recode_measures_response("Medium term results (within the next two reporting periods, 2019-2030)"), "medTerm")
   expect_match(recode_measures_response("Short-term results (within the current reporting period, 2013-2018)"), "srtTerm")
 })
 
@@ -137,12 +140,15 @@ test_that("assessments correctly recoded", {
   expect_match(recode_assessments("Favourable"), "FV")
   expect_match(recode_assessments("Unfavourable-Inadequate"), "U1")
   expect_match(recode_assessments("Unfavourable-Bad"), "U2")
+  expect_match(recode_assessments("Unfavourable Bad"), "U2")
   expect_match(recode_assessments("Unknown"), "XX")
 })
 
 test_that("trends conclusion correctly recoded", {
   expect_match(recode_trends_conclusion("Deteriorating (-)"), "D")
+  expect_match(recode_trends_conclusion("Decreasing"), "D")
   expect_match(recode_trends_conclusion("Improving (+)"), "I")
+  expect_match(recode_trends_conclusion("Increasing"), "I")
   expect_match(recode_trends_conclusion("Stable (=)"), "S")
   expect_match(recode_trends_conclusion("Unknown (x)"), "Unk")
 })
