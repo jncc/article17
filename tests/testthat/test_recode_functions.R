@@ -24,6 +24,9 @@ test_that("population units correctly recoded", {
   expect_match(recode_population_units("number of colonies"), "colonies")
   expect_match(recode_population_units("number of flowering stems"), "fstems")
   expect_match(recode_population_units("number of map 10x10 km grid cells"), "grids10x10")
+  expect_match(recode_population_units("10x10km grids"), "grids10x10")
+  expect_match(recode_population_units("10x10km2"), "grids10x10")
+  expect_match(recode_population_units("10x10km grid"), "grids10x10")
   expect_match(recode_population_units("number of map 1x1 km grid cells"), "grids1x1")
   expect_match(recode_population_units("1 x 1 km grids"), "grids1x1")
   expect_match(recode_population_units("grids 1x1"), "grids1x1")
@@ -142,6 +145,7 @@ test_that("assessments correctly recoded", {
   expect_match(recode_assessments("Unfavourable-Inadequate"), "U1")
   expect_match(recode_assessments("Unfavourable-Bad"), "U2")
   expect_match(recode_assessments("Unfavourable Bad"), "U2")
+  expect_match(recode_assessments("Unfavourable - bad (U2)"), "U2")
   expect_match(recode_assessments("Unknown"), "XX")
 })
 

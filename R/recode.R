@@ -80,6 +80,9 @@ recode_population_units <- function(population_unit) {
              stringr::str_to_lower(value) ==  "number of colonies"  ~  "colonies",
              stringr::str_to_lower(value) ==  "number of flowering stems"  ~  "fstems",
              stringr::str_to_lower(value) ==  "number of map 10x10 km grid cells"  ~  "grids10x10",
+             stringr::str_to_lower(value) ==  "10x10km grids"  ~  "grids10x10",
+             stringr::str_to_lower(value) ==  "10x10km2"  ~  "grids10x10",
+             stringr::str_to_lower(value) ==  "10x10km grid"  ~  "grids10x10",
              stringr::str_to_lower(value) ==  "number of map 1x1 km grid cells"  ~  "grids1x1",
              stringr::str_to_lower(value) ==  "1 x 1 km grids"  ~  "grids1x1",
              stringr::str_to_lower(value) ==  "grids 1x1"  ~  "grids1x1",
@@ -482,6 +485,7 @@ recode_assessments <- function(assessments) {
              stringr::str_detect(stringr::str_to_lower(value), "^unfavourable-inadequate") ~ "U1",
              stringr::str_detect(stringr::str_to_lower(value), "^unfavourable-bad") ~ "U2",
              stringr::str_detect(stringr::str_to_lower(value), "^unfavourable bad") ~ "U2",
+             stringr::str_detect(stringr::str_to_lower(value), "^unfavourable - bad (u2)") ~ "U2",
              stringr::str_detect(stringr::str_to_lower(value), "^unknown") ~ "XX",
              TRUE ~ value
            )) %>% 
