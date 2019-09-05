@@ -184,6 +184,15 @@ test_that("country abbreviations correctly encoded", {
   expect_match(recode_country_abbreviation("Offshore"), "OFF")
 })
 
+test_that("country abbreviations correctly converted to country names", {
+  expect_match(recode_country_name("EN"), "England")
+  expect_match(recode_country_name("NI"), "Northern Ireland")
+  expect_match(recode_country_name("SC"), "Scotland")
+  expect_match(recode_country_name("WA"), "Wales")
+  expect_match(recode_country_name("OFF"), "UK Offshore")
+  expect_match(recode_country_name("UK"), "UK")
+})
+
 test_that("country agency correctly encoded", {
   expect_match(recode_country_agency("England"), "Natural England")
   expect_match(recode_country_agency("N.Ireland"), "Northern Ireland Environment Agency")

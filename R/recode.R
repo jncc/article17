@@ -605,6 +605,34 @@ recode_country_abbreviation <- function(country) {
     unlist()
 }
 
+#' Recode country abbrevation to country name
+#' 
+#' This function country abbreviation to the country
+#' 2name. This is used for example to convert country
+#' abbreviations in file paths to the country name
+#'
+#' @param country_abbreviation character, country abbreviation
+#'
+#' @return character, country name
+#' @export
+#'
+#' @examples
+#' recode_country("NI")
+recode_country_name <- function(country_abbreviation) {
+  
+  tibble::as.tibble(country_abbreviation) %>% 
+    dplyr::mutate(value = dplyr::case_when
+                  (
+                    stringr::str_to_lower(value) == "en" ~ "England",
+                    stringr::str_to_lower(value) == "sc" ~ "Scotland",
+                    stringr::str_to_lower(value) == "wa" ~ "Wales",
+                    stringr::str_to_lower(value) == "ni" ~ "Northern Ireland",
+                    stringr::str_to_lower(value) == "off" ~ "UK Offshore",
+                    TRUE ~ value
+                  )) %>% 
+    unlist()
+}
+
 #' Recode country to country agency
 #'
 #' This function recodes the country to the statutary
