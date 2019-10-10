@@ -23,19 +23,37 @@ image <- image_composite(mask, image, "plus") %>%
 
 # add text
 image %>% 
-  image_annotate("article17", size = 180L, gravity = "center", 
+  image_annotate("article17", size = 150L, gravity = "center", 
                  color = "#FFCC00", style = "italic",
                  strokecolor = "#9E8508",
                   font = "sans") %>% 
   image_write(path = "./man/figures/eu_flag.png", format = "png")
 
 # create hex sticker logo
-sticker(subplot = "./man/figures/eu_flag.png", s_x = 1, s_y = 1, s_width = 1, s_height = 1, package = "",
-        h_fill = "#003399", h_color = "#9E8508",
-        filename = "man/figures/logo.png")
+sticker(subplot = "./man/figures/eu_flag.png", s_x = 1, s_y = 1, s_width = 1, s_height = 1, 
+        package = NA_character_,
+        h_fill = "#003399", h_color = NA_character_,
+        asp = 0.8,
+        filename = "man/figures/logo_1.png")
 
-# format hex sticker
- image_read("./man/figures/logo.png") %>%
+# format hex sticker - make all background blue
+ image_read("./man/figures/logo_1.png") %>%
    image_fill("white", point = "+200+200", fuzz = 60) %>%
    image_fill("#003399", point = "+200+200") %>%
-   image_write(path = "./man/figures/logo.png", format = "png")
+   image_write(path = "./man/figures/logo_2.png", format = "png")
+ 
+# re-create hex sticker logo - add border
+sticker(subplot = "./man/figures/logo_2.png", s_x = 1, s_y = 1, s_width = 1, s_height = 1, 
+         package = NA_character_,
+         h_fill = "#003399", h_color = "#9EB7F0",
+         asp = 1,
+         filename = "man/figures/logo_3.png")
+
+# format hex sticker - make outside transparent
+image_read("./man/figures/logo_3.png") %>%
+  image_fill("white", "+200+580") %>%
+  image_fill("white", "+200+10") %>%
+  image_transparent("white") %>% 
+  image_write(path = "./man/figures/logo.png", format = "png")
+ 
+ 
